@@ -1,0 +1,127 @@
+.hero {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 50%, #f0f9ff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+
+    50% {
+        transform: translateY(-20px) translateX(20px);
+    }
+}
+
+.heroContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+    min-height: 500px;
+}
+
+.heroText {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.heroTitle {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-primary);
+}
+
+.heroDescription {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.heroButtons {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.heroImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagePlaceholder {
+    width: 100%;
+    height: 400px;
+    background: white;
+    border-radius: var(--radius-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    box-shadow: var(--shadow-xl);
+    border: 2px dashed var(--border);
+}
+
+.imagePlaceholder span {
+    font-size: 4rem;
+}
+
+.imagePlaceholder p {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .heroContent {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    .heroTitle {
+        font-size: 2rem;
+    }
+
+    .heroButtons {
+        flex-direction: column;
+    }
+
+    .heroButtons .btn {
+        width: 100%;
+    }
+
+    .imagePlaceholder {
+        height: 300px;
+    }
+}
